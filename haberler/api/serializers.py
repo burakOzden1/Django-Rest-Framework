@@ -9,7 +9,7 @@ class MakaleSerializer(serializers.Serializer):
     aciklama = serializers.CharField()
     metin = serializers.CharField()
     sehir = serializers.CharField()
-    yayimlama_tarihi = serializers.DateField()
+    yayimlanma_tarihi = serializers.DateField()
     aktif = serializers.BooleanField()
     olusturulma_tarihi = serializers.DateTimeField(read_only=True)
     guncellenme_tarihi = serializers.DateTimeField(read_only=True)
