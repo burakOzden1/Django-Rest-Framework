@@ -29,3 +29,12 @@ class MakaleSerializer(serializers.Serializer):
         instance.save()
         return instance
         
+    def validate(self, data):
+        if data['baslik'] == data['aciklama']:
+            raise serializers.ValidationError('Baslik ve aciklama alanlari ayni olamaz.')
+        return data
+    
+    def validate_baslik(self, value):
+        if len(value) < 20:
+            raise serializers.ValidationError(f'Baslik alani minimum 20 karakter olmali. Siz {len(value)} karakter girdiniz.')
+        return value
